@@ -4,7 +4,7 @@ const app = express();
 const Model = require('./models/post')
 const postRoutes = require('./route/post')
 
-mongoose.connect('mongodb+srv://Hawkin:Arthurlucas-2001DB@cluster0.gyltp.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
+mongoose.connect('mongodb+srv://Hawkin:123@cluster0.bzvwd.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
 {
     useNewUrlParser: true,
     useUnifiedTopology: true
