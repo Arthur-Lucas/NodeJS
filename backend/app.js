@@ -1,7 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose')
 const app = express();
-const Model = require('./models/post');
 const postRoutes = require('./route/post')
 
 mongoose.connect('mongodb+srv://Zilba:test@cluster0.l9tw0.mongodb.net/msgNode?retryWrites=true&w=majority',
