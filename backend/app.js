@@ -23,11 +23,13 @@ app.use(express.urlencoded({
     extended : true
 }))
 
-app.use('/delete', postRoutes)
 
-app.use('/put', postRoutes)
+app.use('/user', postRoutes)
 
-app.use('/post', postRoutes)
+
+
+
+
 
 app.use((req, res) => {
     res.json({message: 'ton serveur marche, c est pas mal'});
