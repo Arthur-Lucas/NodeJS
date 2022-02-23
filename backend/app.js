@@ -1,10 +1,10 @@
 const express = require('express');
 const mongoose = require('mongoose')
 const app = express();
-const Model = require('./models/post')
+const Model = require('./models/post');
 const postRoutes = require('./route/post')
 
-mongoose.connect('mongodb+srv://Hawkin:123@cluster0.bzvwd.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
+mongoose.connect('mongodb+srv://Zilba:test@cluster0.l9tw0.mongodb.net/msgNode?retryWrites=true&w=majority',
 {
     useNewUrlParser: true,
     useUnifiedTopology: true

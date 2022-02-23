@@ -1,11 +1,7 @@
 const mongoose = require('mongoose')
 
-const postSchema = mongoose.Schema({
-
-    titre: {type: String, required:true},
-    text: {type: String, required:true},
-    author:{type: String, required:true},
-    urlImage:{type: String, required:false}
+const messageSchema = mongoose.Schema({
+    
 })
 
-module.exports = mongoose.model('Post', postSchema)
+module.exports = mongoose.model('message', postSchema)
