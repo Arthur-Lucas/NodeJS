@@ -1,9 +1,9 @@
 const mongoose = require('mongoose')
 
-const messageSchema = mongoose.Schema({
+const conversationSchema = mongoose.Schema({
     title : {type: String, required: true},
 
-})
+}, {collection: 'conversation'})
 
 
-module.exports = mongoose.model('conversation', messageSchema)
+module.exports = mongoose.model('conversation', conversationSchema)
