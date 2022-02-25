@@ -16,3 +16,10 @@ exports.postMessage = (req,res,next)=> {
     .then(()=> res.status(200).json({message: 'message published'}))
     .catch(error => res.status(400).json({error}))
 }
+
+exports.getAllMessage = (req,res,next)=> {
+    console.log('get all messages')
+    Message.find()
+        .then(messages => res.status(200).json(messages))
+        .catch(error => res.status(400).json({error}));
+}
