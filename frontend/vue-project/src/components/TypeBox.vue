@@ -1,14 +1,43 @@
-<script setup>
-</script>
-
 <template>
   <div class="chat-wrapper">
-      <form method="POST">
-          <input type="text" name="message" id="message" placeholder="Your message">
+      <form @submit.prevent='postMessages'>
+          <input type="text" name="message" id="message" placeholder="Your message" v-model="message.text">
           <input type="submit" id="send" value="Send">
       </form>
   </div>
 </template>
+
+<script>
+import axios from 'axios'
+
+export default {
+    name: 'post',
+    data() {
+        return {
+            message: {
+                text: ''
+            }
+        }
+    },
+    methods: {
+        async postMessages() {
+            if (localStorage.getItem('token')){
+                axios({
+                    method: 'post',
+                    url: 'http://localhost:3001/user/message',
+                    headers: {'Authorization': localStorage.getItem('token')},
+                    data: {
+                        text: this.message.text
+                    }
+                })
+                .then((response) => {
+                this.message.text = ''
+                })
+            }
+        }
+    }
+}
+</script>
 <style>
     @media (min-width: 1250px) {
         .chat-wrapper{

@@ -1,26 +1,49 @@
-<script setup>
-</script>
-
 <template>
   <div class="message-wrapper">
       <ul class="message-list">
-          <li class="message-item">
-              <p class="username">Name 1</p>
-              <p class="message">Message 1</p>
+          <li v-for="message in messages">
+            <p class="username">{{ message.author }}</p>
+            <p class="message">{{ message.text }}</p>
           </li>
-          <li class="message-item">
-              <p class="username">Name 2</p>
-              <p class="message">Lorem, ipsum dolor sit amet consectetur adipisicing elit. In esse ea quis quasi error quaerat eligendi impedit non! Dolorum, iusto.</p>
-          </li>
-          
-
       </ul>
+      
   </div>
 </template>
+
+<script>
+import axios from 'axios'
+
+export default {
+    data() {
+        return {
+            messages: []
+        }
+    },
+    methods: {
+        async getMessages() {
+            axios({
+                method: 'get',
+                url: 'http://localhost:3001/user/conv',
+            })
+            .then((response) => {
+                this.messages = response.data
+            })
+        }  
+    },
+    created() {
+        this.getMessages()
+        setInterval(this.getMessages, 5000)
+    }
+
+}
+</script>
+
+
 <style>
     @media (min-width: 1250px) {
         .message-wrapper{
             height:100%;
+            overflow: hidden;
         }
         .message-list{
             list-style-type: none;
@@ -29,7 +52,7 @@
             flex-direction:column;
             justify-content: flex-end;
             height:100%;
-            overflow-y: hidden;
+            
         }
         .message-item{
             margin-top: 20px;
